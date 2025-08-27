@@ -26,6 +26,7 @@
       "enum": [
         "Clinic",
         "Doctor",
+        "Doctor-2",
         "Home",
         "Hospital",
         "Pharmacy",
