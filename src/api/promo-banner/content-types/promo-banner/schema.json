@@ -24,10 +24,12 @@
     "section": {
       "type": "enumeration",
       "enum": [
+        "Clinic",
         "Doctor",
+        "Home",
         "Hospital",
-        "Service",
-        "Pharmacy"
+        "Pharmacy",
+        "Service"      
       ]
     },
     "order": {
