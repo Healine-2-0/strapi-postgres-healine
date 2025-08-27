@@ -1,6 +1,6 @@
-import { factories } from '@strapi/strapi';
+const { createCoreRouter } = require('@strapi/strapi').factories;
 
-export default factories.createCoreRouter('api::promo-banner.promo-banner', {
+module.exports = createCoreRouter('api::promo-banner.promo-banner', {
   config: {
     find: {
       policies: [],
