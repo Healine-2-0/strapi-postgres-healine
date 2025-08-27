@@ -1,6 +1,6 @@
-import { factories } from '@strapi/strapi';
+const { createCoreRouter } = require('@strapi/strapi').factories;
 
-export default factories.createCoreRouter('api::insurance-plan.insurance-plan', {
+module.exports = createCoreRouter('api::insurance-plan.insurance-plan', {
   config: {
     find: {
       policies: [],
@@ -21,6 +21,6 @@ export default factories.createCoreRouter('api::insurance-plan.insurance-plan', 
     delete: {
       policies: [],
       middlewares: [],
-    }
+    },
   },
 });
