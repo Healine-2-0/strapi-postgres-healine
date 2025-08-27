@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "feedback_templates",
+  "info": {
+    "singularName": "feedback-template",
+    "pluralName": "feedback-templates",
+    "displayName": "Feedback Template"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "message": {
+      "type": "text"
+    },
+    "context": {
+      "type": "string"
+    }
+  }
+}

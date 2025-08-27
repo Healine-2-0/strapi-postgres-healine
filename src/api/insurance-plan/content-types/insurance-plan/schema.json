@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "insurance_plans",
+  "info": {
+    "singularName": "insurance-plan",
+    "pluralName": "insurance-plans",
+    "displayName": "Insurance Plan",
+    "description": "Insurance plans section with provider information"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "provider": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "tagline": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "isFeatured": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

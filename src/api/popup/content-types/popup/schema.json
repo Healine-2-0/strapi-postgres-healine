@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "popups",
+  "info": {
+    "singularName": "popup",
+    "pluralName": "popups",
+    "displayName": "Popup"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "message": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false
+    },
+    "visible": {
+      "type": "boolean"
+    }
+  }
+}
