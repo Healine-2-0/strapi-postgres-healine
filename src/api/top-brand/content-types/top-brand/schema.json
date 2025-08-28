@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "top_brands",
+  "info": {
+    "singularName": "top-brand",
+    "pluralName": "top-brands",
+    "displayName": "Top Brand",
+    "description": "Top brands section with provider information"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "tagline": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}
