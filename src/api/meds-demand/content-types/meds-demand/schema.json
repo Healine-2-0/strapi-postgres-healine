@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "meds_demands",
+  "info": {
+    "singularName": "meds-demand",
+    "pluralName": "meds-demands",
+    "displayName": "Meds Demand",
+    "description": "Meds on demand section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

@@ -1013,6 +1013,39 @@ export interface ApiInsurancePlanInsurancePlan extends Schema.CollectionType {
   };
 }
 
+export interface ApiMedsDemandMedsDemand extends Schema.CollectionType {
+  collectionName: 'meds_demands';
+  info: {
+    singularName: 'meds-demand';
+    pluralName: 'meds-demands';
+    displayName: 'Meds Demand';
+    description: 'Meds on demand section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
+    logo: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::meds-demand.meds-demand',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::meds-demand.meds-demand',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiNeedHelpNeedHelp extends Schema.CollectionType {
   collectionName: 'need_helps';
   info: {
@@ -1320,6 +1353,7 @@ declare module '@strapi/types' {
       'api::hero-section.hero-section': ApiHeroSectionHeroSection;
       'api::info-page.info-page': ApiInfoPageInfoPage;
       'api::insurance-plan.insurance-plan': ApiInsurancePlanInsurancePlan;
+      'api::meds-demand.meds-demand': ApiMedsDemandMedsDemand;
       'api::need-help.need-help': ApiNeedHelpNeedHelp;
       'api::popup.popup': ApiPopupPopup;
       'api::promo-banner.promo-banner': ApiPromoBannerPromoBanner;
