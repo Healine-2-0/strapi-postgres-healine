@@ -4,20 +4,27 @@ module.exports = createCoreController('api::specialities-tab.specialities-tab', 
   async find(ctx) {
     const { query } = ctx;
 
+    // Ensure filters object
     if (!query.filters) {
       query.filters = {};
     }
 
-    if (!query.filters.active) {
-      query.filters.active = { $eq: true };
-    }
-
+    // Default sort
     if (!query.sort) {
-      query.sort = { order: 'asc' };
+      query.sort = { createdAt: 'asc' };
     }
 
-    const { data, meta } = await super.find(ctx);
+    // Call the core controller's find
+    const { data, meta } = await super.find.call(this, ctx);
 
     return { data, meta };
+  },
+
+  async getPublishedEntries(ctx) {
+    const entries = await strapi
+      .service('api::specialities-tab.specialities-tab')
+      .getPublishedEntries();
+
+    return { data: entries };
   },
 }));

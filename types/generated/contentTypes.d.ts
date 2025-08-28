@@ -1159,6 +1159,40 @@ export interface ApiQuickLinkQuickLink extends Schema.CollectionType {
   };
 }
 
+export interface ApiServiceAvailableServiceAvailable
+  extends Schema.CollectionType {
+  collectionName: 'service_availables';
+  info: {
+    singularName: 'service-available';
+    pluralName: 'service-availables';
+    displayName: 'Service Available';
+    description: 'Service Available section for hospital and clinic';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
+    description: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::service-available.service-available',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::service-available.service-available',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSpecialitiesTabSpecialitiesTab
   extends Schema.CollectionType {
   collectionName: 'specialities_tabs';
@@ -1290,6 +1324,7 @@ declare module '@strapi/types' {
       'api::popup.popup': ApiPopupPopup;
       'api::promo-banner.promo-banner': ApiPromoBannerPromoBanner;
       'api::quick-link.quick-link': ApiQuickLinkQuickLink;
+      'api::service-available.service-available': ApiServiceAvailableServiceAvailable;
       'api::specialities-tab.specialities-tab': ApiSpecialitiesTabSpecialitiesTab;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'api::top-brand.top-brand': ApiTopBrandTopBrand;

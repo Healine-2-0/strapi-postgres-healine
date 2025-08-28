@@ -1,6 +1,6 @@
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::need-help.need-help', {
+module.exports = createCoreRouter('api::service-available.service-available', {
   config: {
     find: {
       policies: [],

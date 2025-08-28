@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "service_availables",
+  "info": {
+    "singularName": "service-available",
+    "pluralName": "service-availables",
+    "displayName": "Service Available",
+    "description": "Service Available section for hospital and clinic"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

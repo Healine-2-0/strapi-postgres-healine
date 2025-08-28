@@ -4,26 +4,31 @@ module.exports = createCoreController('api::need-help.need-help', ({ strapi }) =
   async find(ctx) {
     const { query } = ctx;
 
-    // Ensure filters object exists
-    query.filters = query.filters || {};
+    // Ensure filters object
+    if (!query.filters) {
+      query.filters = {};
+    }
 
-    // Default filter: only active items
-    if (query.filters.active === undefined) {
+    // Add default active filter
+    if (!query.filters.active) {
       query.filters.active = { $eq: true };
     }
 
-    // Default sort by id ascending
-    query.sort = query.sort || { id: 'asc' };
+    // Default sort
+    if (!query.sort) {
+      query.sort = { createdAt: 'asc' };
+    }
 
-    const { data, meta } = await super.find(ctx);
+    // Call the core controller's find
+    const { data, meta } = await super.find.call(this, ctx);
 
     return { data, meta };
   },
 
-  async getActiveItems(ctx) {
+  async getActiveEntries(ctx) {
     const entries = await strapi
       .service('api::need-help.need-help')
-      .getActiveItems();
+      .getAllActiveEntries();
 
     return { data: entries };
   },
