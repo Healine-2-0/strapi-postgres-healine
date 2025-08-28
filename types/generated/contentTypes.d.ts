@@ -1013,6 +1013,39 @@ export interface ApiInsurancePlanInsurancePlan extends Schema.CollectionType {
   };
 }
 
+export interface ApiNeedHelpNeedHelp extends Schema.CollectionType {
+  collectionName: 'need_helps';
+  info: {
+    singularName: 'need-help';
+    pluralName: 'need-helps';
+    displayName: 'Need Help';
+    description: 'Need help section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
+    active: Attribute.Boolean & Attribute.DefaultTo<true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::need-help.need-help',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::need-help.need-help',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPopupPopup extends Schema.CollectionType {
   collectionName: 'popups';
   info: {
@@ -1061,7 +1094,15 @@ export interface ApiPromoBannerPromoBanner extends Schema.CollectionType {
     link: Attribute.String;
     image: Attribute.Media;
     section: Attribute.Enumeration<
-      ['Doctor', 'Hospital', 'Service', 'Pharmacy']
+      [
+        'Clinic',
+        'Doctor',
+        'Doctor-2',
+        'Home',
+        'Hospital',
+        'Pharmacy',
+        'Service'
+      ]
     >;
     order: Attribute.Integer;
     active: Attribute.Boolean;
@@ -1173,6 +1214,7 @@ declare module '@strapi/types' {
       'api::hero-section.hero-section': ApiHeroSectionHeroSection;
       'api::info-page.info-page': ApiInfoPageInfoPage;
       'api::insurance-plan.insurance-plan': ApiInsurancePlanInsurancePlan;
+      'api::need-help.need-help': ApiNeedHelpNeedHelp;
       'api::popup.popup': ApiPopupPopup;
       'api::promo-banner.promo-banner': ApiPromoBannerPromoBanner;
       'api::quick-link.quick-link': ApiQuickLinkQuickLink;
