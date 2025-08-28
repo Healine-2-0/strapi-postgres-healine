@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "specialities_tabs",
+  "info": {
+    "singularName": "specialities-tab",
+    "pluralName": "specialities-tabs",
+    "displayName": "Specialities Tab",
+    "description": "Specialities tab section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

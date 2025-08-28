@@ -24,6 +24,14 @@
     "active": {
       "type": "boolean",
       "default": true
+    },
+    "topColor": {
+      "type": "string",
+      "required": false
+    },
+    "bottomColor": {
+      "type": "string",
+      "required": false
     }
   }
 }
