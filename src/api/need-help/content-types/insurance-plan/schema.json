@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "need_helps",
+  "info": {
+    "singularName": "need-help",
+    "pluralName": "need-helps",
+    "displayName": "Need Help",
+    "description": "Need help section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}
