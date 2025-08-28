@@ -1028,6 +1028,8 @@ export interface ApiNeedHelpNeedHelp extends Schema.CollectionType {
     title: Attribute.String & Attribute.Required;
     image: Attribute.Media & Attribute.Required;
     active: Attribute.Boolean & Attribute.DefaultTo<true>;
+    topColor: Attribute.String;
+    bottomColor: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1100,6 +1102,7 @@ export interface ApiPromoBannerPromoBanner extends Schema.CollectionType {
         'Doctor-2',
         'Home',
         'Hospital',
+        'Insurance',
         'Pharmacy',
         'Service'
       ]
@@ -1156,6 +1159,39 @@ export interface ApiQuickLinkQuickLink extends Schema.CollectionType {
   };
 }
 
+export interface ApiSpecialitiesTabSpecialitiesTab
+  extends Schema.CollectionType {
+  collectionName: 'specialities_tabs';
+  info: {
+    singularName: 'specialities-tab';
+    pluralName: 'specialities-tabs';
+    displayName: 'Specialities Tab';
+    description: 'Specialities tab section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::specialities-tab.specialities-tab',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::specialities-tab.specialities-tab',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTestimonialTestimonial extends Schema.CollectionType {
   collectionName: 'testimonials';
   info: {
@@ -1182,6 +1218,42 @@ export interface ApiTestimonialTestimonial extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::testimonial.testimonial',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTopBrandTopBrand extends Schema.CollectionType {
+  collectionName: 'top_brands';
+  info: {
+    singularName: 'top-brand';
+    pluralName: 'top-brands';
+    displayName: 'Top Brand';
+    description: 'Top brands section with provider information';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    tagline: Attribute.String;
+    image: Attribute.Media & Attribute.Required;
+    type: Attribute.Enumeration<['Clinic', 'Hospital']>;
+    order: Attribute.Integer & Attribute.DefaultTo<0>;
+    active: Attribute.Boolean & Attribute.DefaultTo<true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::top-brand.top-brand',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::top-brand.top-brand',
       'oneToOne',
       'admin::user'
     > &
@@ -1218,7 +1290,9 @@ declare module '@strapi/types' {
       'api::popup.popup': ApiPopupPopup;
       'api::promo-banner.promo-banner': ApiPromoBannerPromoBanner;
       'api::quick-link.quick-link': ApiQuickLinkQuickLink;
+      'api::specialities-tab.specialities-tab': ApiSpecialitiesTabSpecialitiesTab;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
+      'api::top-brand.top-brand': ApiTopBrandTopBrand;
     }
   }
 }

@@ -1,19 +1,10 @@
-import { factories } from '@strapi/strapi';
+const { createCoreService } = require('@strapi/strapi').factories;
 
-export default factories.createCoreService('api::specialities-tab.specialities-tab', ({ strapi }) => ({
+module.exports = createCoreService('api::specialities-tab.specialities-tab', ({ strapi }) => ({
   async getActiveTabs() {
-    const tabs = await strapi.entityService.findMany('api::specialities-tab.specialities-tab', {
-      filters: {
-        publishedAt: { $notNull: true }
-      },
-      sort: { id: 'asc' },
-      populate: {
-        image: {
-          fields: ['url', 'alternativeText', 'caption', 'width', 'height']
-        }
-      }
+    return await strapi.db.query('api::specialities-tab.specialities-tab').findMany({
+      where: { active: true },
+      orderBy: { order: 'asc' },
     });
-
-    return tabs;
-  }
+  },
 }));

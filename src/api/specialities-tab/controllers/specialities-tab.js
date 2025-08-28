@@ -1,6 +1,6 @@
-import { factories } from '@strapi/strapi';
+const { createCoreController } = require('@strapi/strapi').factories;
 
-export default factories.createCoreController('api::specialities-tab.specialities-tab', ({ strapi }) => ({
+module.exports = createCoreController('api::specialities-tab.specialities-tab', ({ strapi }) => ({
   async find(ctx) {
     const { query } = ctx;
 
@@ -8,23 +8,16 @@ export default factories.createCoreController('api::specialities-tab.specialitie
       query.filters = {};
     }
 
-    // Only published ones
-    query.filters.publishedAt = { $notNull: true };
+    if (!query.filters.active) {
+      query.filters.active = { $eq: true };
+    }
 
     if (!query.sort) {
-      query.sort = { id: 'asc' };
+      query.sort = { order: 'asc' };
     }
 
     const { data, meta } = await super.find(ctx);
 
     return { data, meta };
   },
-
-  async getActiveTabs(ctx) {
-    const entries = await strapi
-      .service('api::specialities-tab.specialities-tab')
-      .getActiveTabs();
-
-    return { data: entries };
-  }
 }));
