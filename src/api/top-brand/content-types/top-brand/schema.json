@@ -28,7 +28,8 @@
       "type": "enumeration",
       "enum": [
         "Clinic",
-        "Hospital"    
+        "Hospital",
+        "Pharmacy"    
       ]
     },
     "order": {
