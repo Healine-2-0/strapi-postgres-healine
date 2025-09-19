@@ -31,7 +31,7 @@
         "Hospital",
         "Insurance",
         "Pharmacy",
-        "Service"      
+        "Service"
       ]
     },
     "order": {
@@ -39,6 +39,9 @@
     },
     "active": {
       "type": "boolean"
+    },
+    "reference_id": {
+      "type": "string"
     }
   }
 }
