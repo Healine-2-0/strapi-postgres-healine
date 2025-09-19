@@ -632,8 +632,6 @@ export interface ApiNeedHelpNeedHelp extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String & Attribute.Required;
-    image: Attribute.Media & Attribute.Required;
     active: Attribute.Boolean & Attribute.DefaultTo<true>;
     bottomColor: Attribute.String;
     createdAt: Attribute.DateTime;
@@ -645,6 +643,7 @@ export interface ApiNeedHelpNeedHelp extends Schema.CollectionType {
       Attribute.Private;
     image: Attribute.Media & Attribute.Required;
     publishedAt: Attribute.DateTime;
+    reference_id: Attribute.Integer;
     title: Attribute.String & Attribute.Required;
     topColor: Attribute.String;
     updatedAt: Attribute.DateTime;
@@ -714,6 +713,7 @@ export interface ApiPromoBannerPromoBanner extends Schema.CollectionType {
     link: Attribute.String;
     order: Attribute.Integer;
     publishedAt: Attribute.DateTime;
+    reference_id: Attribute.String;
     section: Attribute.Enumeration<
       [
         'Clinic',
