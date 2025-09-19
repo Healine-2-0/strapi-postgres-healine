@@ -632,6 +632,8 @@ export interface ApiNeedHelpNeedHelp extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
+    title: Attribute.String & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
     active: Attribute.Boolean & Attribute.DefaultTo<true>;
     bottomColor: Attribute.String;
     createdAt: Attribute.DateTime;
