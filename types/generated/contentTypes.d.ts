@@ -1060,6 +1060,7 @@ export interface ApiNeedHelpNeedHelp extends Schema.CollectionType {
   attributes: {
     title: Attribute.String & Attribute.Required;
     image: Attribute.Media & Attribute.Required;
+    reference_id: Attribute.Integer;
     active: Attribute.Boolean & Attribute.DefaultTo<true>;
     topColor: Attribute.String;
     bottomColor: Attribute.String;

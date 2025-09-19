@@ -21,6 +21,10 @@
       "multiple": false,
       "required": true
     },
+    "reference_id": {
+      "type": "integer",
+      "required": false
+    },
     "active": {
       "type": "boolean",
       "default": true
