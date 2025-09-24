@@ -20,6 +20,15 @@
       "type": "media",
       "multiple": false,
       "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "hospital",
+        "doctor",
+        "clinic"
+      ],
+      "required": true
     }
   }
 }

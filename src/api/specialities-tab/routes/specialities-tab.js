@@ -22,5 +22,9 @@ module.exports = createCoreRouter('api::specialities-tab.specialities-tab', {
       policies: [],
       middlewares: [],
     },
+    getPublishedEntries: {
+      policies: [],
+      middlewares: [],
+    },
   },
 });

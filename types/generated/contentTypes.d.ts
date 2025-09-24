@@ -825,6 +825,8 @@ export interface ApiSpecialitiesTabSpecialitiesTab
     image: Attribute.Media & Attribute.Required;
     publishedAt: Attribute.DateTime;
     title: Attribute.String & Attribute.Required;
+    type: Attribute.Enumeration<['hospital', 'doctor', 'clinic']> &
+      Attribute.Required;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
       'api::specialities-tab.specialities-tab',
