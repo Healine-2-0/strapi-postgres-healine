@@ -41,6 +41,11 @@
     "isFeatured": {
       "type": "boolean",
       "default": false
+    },
+    "reference_id": {
+      "type": "string",
+      "unique": true,
+      "required": true
     }
   }
 }
